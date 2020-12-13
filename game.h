@@ -79,32 +79,59 @@ public:
         cout << "Attack: " << m_characterAttack << endl; // vratit se sem a pridat bonus ze zbrane
     }
 
-    Character (string characterName, int characterBaseAttack, int characterMaxHP, bool characterType){
+    Character (string characterName, int characterBaseAttack, int characterMaxHP){
         m_characterName = characterName;
         m_characterBaseAttack = characterBaseAttack;
         m_characterAttack = m_characterBaseAttack;
         m_characterMaxHP = characterMaxHP;
         m_characterHP = m_characterMaxHP;
-        m_characterType = characterType;
+        m_characterType = false;
     };
 
     void Attack (){
-        
+
     }
 };
 
 class Player : protected Character {
+private:
+    const static int m_inventorySize = 15;
+    string inventory[m_inventorySize];
+public:
+    Player (string playerName, int playerAttack, int playerMaxHP, bool playerType){
+        m_characterName = playerName;
+        m_characterBaseAttack = playerAttack;
+        m_characterAttack = m_characterBaseAttack;
+        m_characterMaxHP = playerMaxHP;
+        m_characterHP = m_characterMaxHP;
+        m_characterType = true;
+    };
 
+    void drinkPotion (Potion* potion){
+
+    }
 };
 
 // konci Character zacina Room
 
 class Room : protected Game {
+protected:
+    int roomNumber;
+public:
+    void goToNextRoom (){
 
+    };
 };
 
 class FirstRoom : protected Room {
-
+private:
+    bool wonFight;
+    bool foundDoor;
+public:
+    void searchChest (){
+        // zapnout randomizer, dostanu x
+        
+    }
 };
 
 class SecondRoomA : protected Room {
