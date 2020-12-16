@@ -144,6 +144,20 @@ class SecondRoomB : protected Room {
 
 class ThirdRoom : protected Room {
 
+    public:
+    void catchAKey(){
+        srand(time(0));
+        int chance = (rand() % 10 + 1);
+        if (chance < 7 ){
+               if (chance < 4){
+                     bool caughtKey = true;
+                     std::cout << "You caught the right key! Now you can unlock the door leading to the next room.\n";
+                } else {
+                     std::cout << "You caught the key, but it's not the right one! Better try different key.\n";
+                 }
+         } else {
+                std::cout << "No! The key slipped out of your hand. You'll have to try again.\n";
+        };
 };
 
 class FourthRoom : protected Room {
